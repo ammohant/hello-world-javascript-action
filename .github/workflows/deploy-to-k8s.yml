@@ -6,7 +6,7 @@ jobs:
     steps:
     - uses: azure/aks-set-context@v1
       with:
-        creds: '${{ secrets.AZURE_CREDS }}'
+        creds: '${{ secrets.AZURE_CREDS_AMB }}'
         resource-group: 'shigupt-rg'
         cluster-name: 'shigupt'
         #arc-enabled: 'true'
