@@ -1,0 +1,15 @@
+name: CI
+on: [pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: azure/aks-set-context@users/shigupt/arc-test
+      with:
+        creds: '${{ secrets.AZURE_CREDS }}'
+        resource-group: 'testARCrg'
+        cluster-name: 'testARCclus1'
+        arc-enabled: 'true'
+        aad-creds: '${{ secrets.AZURE_AADCREDS }}'
+    - run: cat $KUBECONFIG
+    - run: 'kubectl get nodes'
