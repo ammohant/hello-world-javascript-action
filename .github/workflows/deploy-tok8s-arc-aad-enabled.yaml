@@ -4,12 +4,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: azure/aks-set-context@users/shigupt/arc-test
+    - uses: azure/aks-set-context@v1
       with:
         creds: '${{ secrets.AZURE_CREDS }}'
-        resource-group: 'testARCrg'
-        cluster-name: 'testARCclus1'
-        arc-enabled: 'true'
-        aad-creds: '${{ secrets.AZURE_AADCREDS }}'
+        resource-group: 'ammohant'
+        cluster-name: 'ammohant-2020'
+        
     - run: cat $KUBECONFIG
-    - run: 'kubectl get nodes'
+    - run: 'kubectl get namespaces'
